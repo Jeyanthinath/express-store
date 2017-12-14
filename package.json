@@ -1,0 +1,23 @@
+{
+  "name": "express-store",
+  "version": "0.0.1",
+  "author": {
+    "name": "jeyanthi",
+    "email": "jeyanthinath10@gmail.com"
+  },
+  "private": true,
+  "scripts": {
+    "start": "supervisor ./bin/www"
+  },
+  "dependencies": {
+    "@moltin/sdk": "^3.0.1",
+    "body-parser": "~1.18.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.15.5",
+    "morgan": "~1.9.0"
+  },
+  "devDependencies": {
+    "supervisor": "^0.12.0"
+  }
+}
