@@ -47,11 +47,15 @@ router.get('/get_cart', function (req, res, next) {
 
 
 router.get('/checkout', function (req, res, next) {
-
   out = moltin.checkout()
   out.then(function(checkout){
-    console.log("Checkout is ",checkout)
-    // res.json({result: product['data']});
+    if (checkout != null) {
+      res.json(checkout)
+    }
+    else{
+      res.status(403);
+      res.json({'error': '403'});
+    }
   }).catch(function(res){
     res.status(500);
     res.json({'error': '500'});
