@@ -10,8 +10,6 @@ router.get('/', function (req, res, next) {
 
   out = moltin.get_products()
   out.then(function(product){
-    console.log("out is ",product)
-
     res.json({result: product['data']});
   }).catch(function(res){
     res.status(500);
@@ -28,7 +26,7 @@ router.get('/add/:id', function (req, res, next) {
   // });
   out = moltin.add_to_cart(product_id);
   out.then(function(product){
-    console.log("out is ", product)
+    console.log('product added with id', product_id)
   }).catch(function(res){
     res.status(500)
     res.json({'error': '500'})
@@ -40,16 +38,24 @@ router.get('/get_cart', function (req, res, next) {
 
   out = moltin.get_cart()
   out.then(function(product){
-    console.log("out is ",product)
-
     res.json({result: product['data']});
   }).catch(function(res){
     res.status(500);
     res.json({'error': '500'});
   })
-
 });
 
 
+router.get('/checkout', function (req, res, next) {
+
+  out = moltin.checkout()
+  out.then(function(checkout){
+    console.log("Checkout is ",checkout)
+    // res.json({result: product['data']});
+  }).catch(function(res){
+    res.status(500);
+    res.json({'error': '500'});
+  })
+});
 
 module.exports = router;
